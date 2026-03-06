@@ -13,9 +13,33 @@ route :: get ("/hello", function () {
     return "Hello World";
 
 });
-// tebe3 tp 
+// tebe3 tp
 Route::get('/home', function () { return view('home'); });
 Route::get('/profil', function () { return view('profil', [ 'nom' => 'Alice', 'age' => 25, 'ville' => 'Paris' ]); });
+Route::get('/produits', function () { $produits = [ ['nom' => 'Ordinateur', 'prix' => 899], ['nom' => 'Souris', 'prix' => 25], ['nom' => 'Clavier', 'prix' => 65], ['nom' => 'Écran', 'prix' => 299], ]; return view('produits', ['produits' => $produits]); });
+Route::get('/contact', function () { return view('contact'); });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 route :: get ("/about", function (){
 
