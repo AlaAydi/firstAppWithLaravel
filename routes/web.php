@@ -13,7 +13,9 @@ route :: get ("/hello", function () {
     return "Hello World";
 
 });
-
+// tebe3 tp 
+Route::get('/home', function () { return view('home'); });
+Route::get('/profil', function () { return view('profil', [ 'nom' => 'Alice', 'age' => 25, 'ville' => 'Paris' ]); });
 
 route :: get ("/about", function (){
 
