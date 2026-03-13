@@ -1,7 +1,9 @@
 
 
 <?php
+
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\TaskController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -91,3 +93,12 @@ Route::get('/about',
 Route::get('/contact', [PageController::class, 'contact']);
 Route::get('/services', [PageController::class, 'services']);
 Route::get('/blog', [PageController::class, 'blog']);
+
+
+
+
+
+// tp 3
+
+Route::get('/', fn() => redirect()->route('tasks.index'));
+Route::resource('tasks', TaskController::class);
