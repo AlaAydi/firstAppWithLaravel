@@ -1,7 +1,7 @@
+
+
 <?php
-
-//c'est le fichier de routage de l'application
-
+use App\Http\Controllers\PageController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -18,23 +18,6 @@ Route::get('/home', function () { return view('home'); });
 Route::get('/profil', function () { return view('profil', [ 'nom' => 'Alice', 'age' => 25, 'ville' => 'Paris' ]); });
 Route::get('/produits', function () { $produits = [ ['nom' => 'Ordinateur', 'prix' => 899], ['nom' => 'Souris', 'prix' => 25], ['nom' => 'Clavier', 'prix' => 65], ['nom' => 'Écran', 'prix' => 299], ]; return view('produits', ['produits' => $produits]); });
 Route::get('/contact', function () { return view('contact'); });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -64,7 +47,7 @@ return "Hello $id";
 }) ->where ("id" , "[0-9]+") ;
 
 
-// addig fucntion sum two numbers
+// addiNg fucntion sum two numbers
 Route::get("/sum/{a}/{b}", function ($a, $b) {
     $sum = $a + $b;
     return "La somme de $a et $b est : $sum";
@@ -97,3 +80,14 @@ Route::get('/equipe/{membre?}', function ($membre = null) {
 
     return "Ce membre n'existe pas";
 });
+
+Route::get('/',
+ [PageController::class, 'home']);
+
+
+Route::get('/about',
+[PageController::class, 'about']);
+
+Route::get('/contact', [PageController::class, 'contact']);
+Route::get('/services', [PageController::class, 'services']);
+Route::get('/blog', [PageController::class, 'blog']);
